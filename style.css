@@ -306,21 +306,7 @@ body.login-bg {
   .task-columns {
     flex-direction: column;
   }
-  .task-column {
-    display: flex !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-  .task-column:not(.active) {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-  .task-column.active {
-    display: flex !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
+ 
 }
 
 /* Collapsible section animation */
