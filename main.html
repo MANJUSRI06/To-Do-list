@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <!-- Mobile column toggle button: moved inside header for better layout and JS targeting -->
+    <header class="main-header">
+      <div class="header-left">
+        <span class="logo" aria-label="To-Do Logo">📝</span>
+        <h1>My To-Do List</h1>
+      </div>
+      <div class="header-right">
+        <button id="logoutBtn" aria-label="Logout" class="logout-btn" tabindex="0" style="display:none;">
+          <span>🚪</span> Logout
+        </button>
+        <button id="columnToggleBtn" aria-label="Show columns" class="mobile-toggle-btn" tabindex="0" style="display:none;">
+          <span style="font-size:2rem;line-height:1;">☰</span>
+        </button>
+      </div>
+    </header>
+  <div class="quote-rotator-bg">
+    <div class="quote-rotator big-scroll" id="quoteRotator" aria-live="polite" tabindex="0"></div>
+  </div>
+    <div class="todo-container">
+    <div class="input-row">
+      <input type="text" id="taskInput" placeholder="Add a new task...">
+      <button id="addTaskBtn" onclick="addTask()" aria-label="Add Task"><i class="fa-solid fa-plus"></i> Add Task</button>
+    </div>
+      <div class="task-columns" id="taskColumns">
+      <div class="task-column">
+        <h2>
+          <span style="font-size:2.1rem;margin-right:14px;vertical-align:middle;">📝</span>
+          Add Task
+        </h2>
+        <ul id="taskList"></ul>
+      </div>
+      <!-- Mobile column list overlay -->
+      <div id="mobileColumnList" class="mobile-column-list" style="display:none;">
+        <button class="close-mobile-list" aria-label="Close column list">✕</button>
+        <ul>
+          <li><button class="mobile-col-btn" data-col="0">Add Task</button></li>
+          <li><button class="mobile-col-btn" data-col="1">On Progress</button></li>
+          <li><button class="mobile-col-btn" data-col="2">Completed</button></li>
+          <li><button class="mobile-logout-btn" id="mobileLogoutBtn"><span>🚪</span> Logout</button></li>
+        </ul>
+      </div>
+      <div class="task-column">
+        <h2>
+          <span style="font-size:2.1rem;margin-right:14px;vertical-align:middle;">⏳</span>
+          On Progress
+        </h2>
+        <ul id="progressList"></ul>
+      </div>
+      <div class="task-column">
+        <h2>
+          <span style="font-size:2.1rem;margin-right:14px;vertical-align:middle;">✅</span>
+          Completed
+        </h2>
+        <ul id="completedList"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Quote rotator logic
+    const quotes = [
+      '"Small steps every day lead to big results." 💪',
+      '"Don’t watch the clock; do what it does. Keep going."',
+      '"The best way to get things done is to simply begin."'
+    ];
+    let quoteIndex = 0;
+    const quoteRotator = document.getElementById('quoteRotator');
+    function showQuote(idx) {
+      quoteRotator.innerHTML = `<span class='scrolling-text' style="font-size:inherit;font-weight:inherit;">${quotes[idx]}</span>`;
+    }
+    function nextQuote() {
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+      showQuote(quoteIndex);
+    }
+    showQuote(quoteIndex);
+    setInterval(nextQuote, 3000);
+  </script>
+</body>
+</html>
