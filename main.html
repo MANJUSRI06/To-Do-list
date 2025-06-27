@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Simple To-Do List</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
   <body>
     <!-- Mobile column toggle button: moved inside header for better layout and JS targeting -->
@@ -13,10 +13,10 @@
         <h1>My To-Do List</h1>
       </div>
       <div class="header-right">
-        <button id="logoutBtn" aria-label="Logout" class="logout-btn" tabindex="0" style="display:none;">
+        <button id="logoutBtn" aria-label="Logout" class="logout-btn" tabindex="0">
           <span>🚪</span> Logout
         </button>
-        <button id="columnToggleBtn" aria-label="Show columns" class="mobile-toggle-btn" tabindex="0" style="display:none;">
+        <button id="columnToggleBtn" aria-label="Show columns" class="mobile-toggle-btn" tabindex="0">
           <span style="font-size:2rem;line-height:1;">☰</span>
         </button>
       </div>
@@ -38,7 +38,7 @@
         <ul id="taskList"></ul>
       </div>
       <!-- Mobile column list overlay -->
-      <div id="mobileColumnList" class="mobile-column-list" style="display:none;">
+      <div id="mobileColumnList" class="mobile-column-list" aria-hidden="true">
         <button class="close-mobile-list" aria-label="Close column list">✕</button>
         <ul>
           <li><button class="mobile-col-btn" data-col="0">Add Task</button></li>
@@ -63,7 +63,7 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
   <script>
     // Quote rotator logic
     const quotes = [

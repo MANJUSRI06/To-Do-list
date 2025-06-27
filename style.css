@@ -848,6 +848,7 @@ button .icon {
 
 .mobile-toggle-btn {
   display: none !important;
+  border: 2px dashed red !important;
 }
 
 @media (max-width: 700px) {
@@ -858,7 +859,7 @@ button .icon {
     right: 18px;
     background: var(--card-bg-glass);
     color: var(--primary);
-    border: 2px solid var(--accent);
+    border: 2px dashed red !important;
     border-radius: 50%;
     width: 48px;
     height: 48px;
