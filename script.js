@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Logout logic
   function doLogout() {
     document.body.innerHTML = `<div style='display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;'><span class='logo' style='font-size:2.5rem;'>📝</span><h2 style='color:var(--primary);margin:18px 0 0 0;'>Logged out!</h2><div style='margin-top:18px;color:var(--text-light);font-size:1.1rem;'>Redirecting to login...</div></div>`;
-    setTimeout(()=>{ window.location.href = 'login.html'; }, 1200);
+    setTimeout(()=>{ window.location.href = 'index.html'; }, 1200);
   }
   if (logoutBtn) logoutBtn.onclick = doLogout;
   if (mobileLogoutBtn) mobileLogoutBtn.onclick = doLogout;
