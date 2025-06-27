@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - To-Do List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body class="login-bg">
+  <form class="login-container login-form" autocomplete="off" onsubmit="return handleLogin(event)">
+    <div class="login-header">
+      <span class="logo" aria-label="To-Do Logo">📝</span>
+      <h2>Sign in to <span style="color:var(--primary);font-weight:900;">To-Do List</span></h2>
+    </div>
+    <div class="input-row">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" name="username" required autocomplete="username" placeholder="Enter your username">
+    </div>
+    <div class="input-row">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+    </div>
+    <button type="submit"><span>🔒</span> Login</button>
+    <div class="login-footer">Forgot password? <a href="#" style="color:var(--accent);text-decoration:underline;">Reset</a></div>
+  </form>
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('login-username').value.trim();
+      const pass = document.getElementById('login-password').value.trim();
+      if(user && pass) {
+        // Simple fake login effect
+        document.querySelector('.login-container').innerHTML = `<div style='text-align:center;padding:40px 0;'><span class='logo' style='font-size:2.5rem;'>📝</span><h2 style='color:var(--primary);margin:18px 0 0 0;'>Welcome, <span style='color:var(--accent);'>${user}</span>!</h2><div style='margin-top:18px;color:var(--text-light);font-size:1.1rem;'>Redirecting...</div></div>`;
+        setTimeout(()=>{ window.location.href = 'index.html'; }, 1200);
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
